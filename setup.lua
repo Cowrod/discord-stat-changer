@@ -26,13 +26,14 @@ end
 
 if isInArgs('--help', true, true) or isInArgs('-h', true, true) or isInArgs('-?', true, true) then
 	print('Args:')
-	print('\t--no-lit-log | uses io.popen to block lit logs popping up on console')
+	print('\t--no-lit-log    | uses io.popen to block lit logs popping up on console')
+	print('\t--no-lit-prompt | tries to auto guess lit name')
 	os.exit()
 end
 
 print('this script it is running on luvit ENV')
 io.write('enter lit package manager name ["./lit" for example on linux]> ')
-local lit = io.input():read('*l')
+local lit = not isInArgs('--no-lit-prompt', true, true) and io.input():read('*l') or ''
 			lit = tostring(lit) == '' and (require('jit').os ~= 'Windows' and './' or '')..'lit'
 local command = isInArgs('--no-lit-log', true, true) and (function(cmd)
 	repeat
