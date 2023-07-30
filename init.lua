@@ -35,6 +35,8 @@ while true do
 				else
 					good=good+1
 				end
+			else
+				good=good+1
 			end
 		else
 			fail=fail+1
