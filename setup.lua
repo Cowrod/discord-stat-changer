@@ -16,7 +16,7 @@ function isInArgs(query,matchCase,isFullCopy)
 					return true
 				end
 			else
-				if v:lower():find(query:lower():gsub('%p','%%%1') then
+				if v:lower():find(query:lower():gsub('%p','%%%1')) then
 					return true
 				end
 			end
@@ -32,13 +32,13 @@ end
 
 print('this script it is running on luvit ENV')
 io.write('enter lit package manager name ["./lit" for example on linux]> ')
-local lit = io.input():read('*line')
-			lit = lit ~= '' and (require('jit').os ~= 'Windows' and './')..'lit'
+local lit = io.input():read('*l')
+			lit = tostring(lit) == '' and (require('jit').os ~= 'Windows' and './' or '')..'lit'
 local command = isInArgs('--no-lit-log', true, true) and (function(cmd)
 	repeat
 		a = io.popen(cmd)
 	until a
-	return a:read('*all')
+	return a:read('*a')
 end) or os.execute
 print('Downloading coro-http')
 command(lit..' install creationix/coro-http')
