@@ -24,12 +24,18 @@ while true do
 	if math.floor(_/10)==_/10 then
 		isw,r,b=pcall(require'coro-http'.request,"PATCH","https://discord.com/api/v9/users/@me/settings",{{"Content-Type","application/json"},{"authorization",token}},require'json'.encode{custom_status={text=os.date(messages[good%#messages])}},7500)
 		if isw then
-			if b=='{"message": "401: Unauthorized", "code": 0}'then
-				io.write(color.Red..'\7Token Got Invalid')
-				require'timer'.sleep(10000)
-				os.exit()
+			isw,r=pcall(require'json'.decode,b)
+			if isw and r then
+				if r.code==0 then
+					io.write(color.Red..'\7Token Got Invalid')
+					require'timer'.sleep(10000)
+					os.exit()
+				elseif r.retry_after then
+					require'timer'.sleep(r.retry_after*1000)fail=fail+1
+				else
+					good=good+1
+				end
 			end
-			good=good+1
 		else
 			fail=fail+1
 		end
