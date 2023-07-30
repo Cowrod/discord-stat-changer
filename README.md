@@ -33,7 +33,7 @@ cd discord-stat-changer
 :: Download Luvit
 PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))"
 :: Download Required Libraries
-luvit setup --no-lit-log
+luvit setup --no-lit-log --no-lit-prompt
 
 ```
 
@@ -43,7 +43,7 @@ luvit setup --no-lit-log
 git clone https://github.com/Cowrod/discord-stat-changer
 cd discord-stat-changer
 curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh
-./luvit setup --no-lit-log
+./luvit setup --no-lit-log --no-lit-prompt
 
 ```
 
