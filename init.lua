@@ -15,7 +15,7 @@ if b=='{"message": "401: Unauthorized", "code": 0}'then
 	os.exit()
 end
 coroIt(_G)
-local good,fail=0,0
+local good,fail=tonumber(require'fs'.readFileSync"good.txt"or"0"),tonumber(require'fs'.readFileSync"fail.txt"or"0")
 local realMessages={"hello","hi","heya"}
 while true do
 	messages={}for i,v in pairs(require'json'.decode(require'fs'.readFileSync"status.txt"or require'json'.encode(realMessages))or realMessages)do messages[i-1]=v end messages[#messages+1]=""
@@ -45,6 +45,7 @@ while true do
 		print(color.White.."Changed Status "..color.Green..good..color.White.." Times")
 		print("Failed "..color.Red..fail..color.White.." Times")
 		print("Current Token: ".."\27[97;107m"--[[token becomes invisible on console due to this ansi thing]]..token.."\27[97;0m")
+		require'fs'.writeFileSync("fail.txt",tostring(fail))require'fs'.writeFileSync("good.txt",tostring(good))
 		repeat _=os.date"%S"until not(math.floor(_/10)==_/10)
 	end
 end
