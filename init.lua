@@ -3,7 +3,7 @@ function isPairs(tbl)local isw,data=pcall(pairs, tbl)data=nil return isw end
 function isIn(tbl,object)if isPairs(tbl)then for i, v in pairs(tbl)do if v==object then tbl,object,i,v=nil,nil,nil,nil return true end end end return false end
 function coroFunc(func)local old=func func=function(...)return coroutine.wrap(old)(...)end coroutined[#coroutined+1]=tostring(func)end
 function coroIt(tbl)if not(tbl==coroutine)and not seen[tostring(tbl)]and isPairs(tbl)then seen[tostring(tbl)]=true for i,v in pairs(tbl)do(type(v)=="table"and coroIt or type(v)=="function"and not isIn(coroutine,func)and not isIn(coroutined,tostring(func))and coroFunc or function(v)end)(v)end end end
-function _G.clear()os.execute'cls'print'\27[97m\n\tdiscord-stat-changer By Cowrod\n'end
+function _G.clear()os.execute(require'jit'.os=='Windows'and'cls'or'clear')print'\27[97m\n\tdiscord-stat-changer By Cowrod\n'end
 function _G.count(t)a=0 for i,v in pairs(t)do a,i,v=a+1,nil,nil end return a end
 if not require'fs'.existsSync"donotdeleteme.iamaverifierfile"then while true do clear()print"Warning: Using this tool may result in the suspension of your Discord account.\nWhy? Although I cannot confirm, I've heard it may be due to potential \"selfbotting\" as mentioned on Reddit.\nThis tool simply changes your status on Discord, but I cannot guarantee its safety.\nProceed at your own risk. [This message is for information purposes only.]"io.write'Type "YES" to continue using this tool: 'if io.input():read'*l':upper()=="YES"then break end end require'fs'.writeFileSync("donotdeleteme.iamaverifierfile","")end
 clear()io.write("token> \27[97;107m")
