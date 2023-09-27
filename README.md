@@ -1,4 +1,4 @@
-# Discord Stat Changer [readme.md by ChatGPT]
+# Discord Stat Changer \[[readme.md by ChatGPT](https://chat.openai.com/)\]
 
 **Disclaimer:** Using this tool may lead to your Discord account getting banned. The developer of this tool does not guarantee its safety, and it should be used at your own risk.
 
@@ -35,10 +35,9 @@ PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointM
 :: Download Required Libraries
 luvit setup --no-lit-log --no-lit-prompt
 luvit init
-
 ```
 
-#### Linux (idk if it does work):
+#### Linux:
 
 ```sh
 git clone https://github.com/Cowrod/discord-stat-changer
@@ -46,7 +45,6 @@ cd discord-stat-changer
 curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh
 ./luvit setup --no-lit-log --no-lit-prompt
 ./luvit init
-
 ```
 
 ## How to Use
@@ -62,15 +60,13 @@ curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh
 
    Note: You can replace `luvit` with the correct command for running Luvit on your system.
 
-<br/>note by Cowrod: <br/>
-you can just run "luvit init" and enter the token in the code itself instead of saving the token into a file<br/>
-and don't forget to set up status messages which are written how in abit down by chatgpt<br/>
-<br/>AND if you are going to use this tool for an actual bot, put your input in this format "BOT token-here"
+**Note**: You can also run "luvit init" and enter the token in the code itself instead of saving the token into a file. Don't forget to set up status messages as described below. If you are using this tool for a bot, format your input as "BOT token-here."
 
 ## Warnings
 
-- The tool may result in your Discord account being banned due to potential "selfbotting" violations.
+- This tool may result in your Discord account being banned due to potential "selfbotting" violations.
 - Use this tool at your own risk, as the developer does not guarantee its safety or compliance with Discord's terms of service.
+- This project was made for educational purposes only. The developer takes no responsibility for any actions you take with this program.
 
 ## Status Messages
 
