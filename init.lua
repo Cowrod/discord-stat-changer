@@ -1,10 +1,6 @@
-local coroutined,seen,color={},{},{Black="\27[90m",Red="\27[91m",Green="\27[92m",Yellow="\27[93m",DarkBlue="\27[94m",Purple="\27[95m",LightBlue="\27[96m",White="\27[97m"}
-function isPairs(tbl)local isw,data=pcall(pairs, tbl)data=nil return isw end
-function isIn(tbl,object)if isPairs(tbl)then for i, v in pairs(tbl)do if v==object then tbl,object,i,v=nil,nil,nil,nil return true end end end return false end
-function coroFunc(func)local old=func func=function(...)return coroutine.wrap(old)(...)end coroutined[#coroutined+1]=tostring(func)end
-function coroIt(tbl)if not(tbl==coroutine)and not seen[tostring(tbl)]and isPairs(tbl)then seen[tostring(tbl)]=true for i,v in pairs(tbl)do(type(v)=="table"and coroIt or type(v)=="function"and not isIn(coroutine,func)and not isIn(coroutined,tostring(func))and coroFunc or function(v)end)(v)end end end
-function _G.clear()os.execute(require'jit'.os=='Windows'and'cls'or'clear')print'\27[97m\n\tdiscord-stat-changer By Cowrod\n'end
-function _G.count(t)a=0 for i,v in pairs(t)do a,i,v=a+1,nil,nil end return a end
+local color={Black="\27[90m",Red="\27[91m",Green="\27[92m",Yellow="\27[93m",DarkBlue="\27[94m",Purple="\27[95m",LightBlue="\27[96m",White="\27[97m"}
+function clear()io.write("\27\99"..color.White.."\n\tdiscord-stat-changer By Cowrod\n\n")end
+function count(t)a=0 for i,v in pairs(t)do a,i,v=a+1,nil,nil end return a end
 if not require'fs'.existsSync"donotdeleteme.iamaverifierfile"then while true do clear()print"Warning: Using this tool may result in the suspension of your Discord account.\nWhy? Although I cannot confirm, I've heard it may be due to potential \"selfbotting\" as mentioned on Reddit.\nThis tool simply changes your display name on a Discord server, but I cannot guarantee its safety.\nProceed at your own risk. [This message is for information purposes only.]"io.write'Type "YES" to continue using this tool: 'q,w=io.input():read'*l'if q and q:upper()=="YES"then break elseif not q and w then print"\nFailed To Read UserInput Please Create A File Named 'donotdeleteme.iamaverifierfile' if you confirm these thing in up"os.exit()end end require'fs'.writeFileSync("donotdeleteme.iamaverifierfile","")end
 clear()io.write("token> \27[97;107m")
 local token = require'fs'.existsSync"token.txt"and (function()q=require'fs'.readFileSync"token.txt"print(q)return q end)()or io.input():read'*l'io.write"\27[97;0m"
@@ -32,7 +28,7 @@ while true do
 					require'timer'.sleep(10000)
 					os.exit()
 				elseif r.retry_after then
-					require'timer'.sleep(r.retry_after*1000)fail=fail+1
+					require'timer'.sleep(r.retry_after*1e3)fail=fail+1
 				else
 					good=good+1
 				end
