@@ -1,4 +1,4 @@
-# Discord Stat Changer \[[readme.md by ChatGPT](https://chat.openai.com/)\]
+# Discord Status Changer \[[readme.md by ChatGPT](https://chat.openai.com/)\]
 
 **Disclaimer:** Using this tool may lead to your Discord account getting banned. The developer of this tool does not guarantee its safety, and it should be used at your own risk.
 
