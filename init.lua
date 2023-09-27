@@ -11,7 +11,6 @@ if b=='{"message": "401: Unauthorized", "code": 0}'then
 	require'timer'.sleep(10000)
 	os.exit()
 end
-coroIt(_G)
 local good,fail=tonumber(require'fs'.readFileSync"good.txt"or"0"),tonumber(require'fs'.readFileSync"fail.txt"or"0")
 local realMessages={"hello","hi","heya"}
 while true do
