@@ -27,24 +27,21 @@
 #### Windows:
 
 ```batch
-:: Download Repo
-git clone https://github.com/Cowrod/discord-stat-changer
-cd discord-stat-changer
-:: Download Luvit
-PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))"
-:: Download Required Libraries
-luvit setup --no-lit-log --no-lit-prompt
-luvit init
+git clone https://github.com/Cowrod/discord-stat-changer & :: Download Repo
+cd discord-stat-changer & :: CD Into Repo
+PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))" & :: Download Luvit
+luvit setup --no-lit-log --no-lit-prompt & :: Download Required Libraries
+luvit init & :: Run The Script
 ```
 
 #### Linux:
 
 ```sh
-git clone https://github.com/Cowrod/discord-stat-changer
-cd discord-stat-changer
-curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh
-./luvit setup --no-lit-log --no-lit-prompt
-./luvit init
+git clone https://github.com/Cowrod/discord-stat-changer # Download Repo
+cd discord-stat-changer # CD Into Repo
+curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh # Download Luvit
+./luvit setup --no-lit-log --no-lit-prompt # Download Required Libraries
+./luvit init # Run The Script
 ```
 
 ## How to Use
